@@ -9,10 +9,14 @@ import java.util.stream.Collectors;
 public class Summary {
     private final List<SummaryItem> sell;
 
-    Summary(List<SummaryItem> sell) {
+    public Summary(List<SellOrder> orders) {
+        List<SummaryItem> sellItems = orders
+                                   .stream()
+                                   .map(order -> new SummaryItem(order.getQty(), order.getPricePerUnit()))
+                                   .collect(Collectors.toList());
         this.sell = Ordering.from((SummaryItem item1, SummaryItem item2) -> item1.pricePerUnit().value().compareTo(item2.pricePerUnit().value()))
                      .sortedCopy(
-                      sell.stream()
+                      sellItems.stream()
                        .collect(Collectors.groupingBy(SummaryItem::pricePerUnit))
                        .values()
                        .stream()
