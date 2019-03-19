@@ -5,15 +5,19 @@ import java.util.Objects;
 public class SummaryItem {
     private final Kilograms qty;
 
-    public GBP getPricePerUnit() {
-        return pricePerUnit;
-    }
-
     private final GBP pricePerUnit;
 
     public SummaryItem(Kilograms qty, GBP pricePerUnit) {
         this.qty = qty;
         this.pricePerUnit = pricePerUnit;
+    }
+
+    public GBP pricePerUnit() {
+        return pricePerUnit;
+    }
+
+    public Kilograms qty() {
+        return qty;
     }
 
     @Override
@@ -37,4 +41,5 @@ public class SummaryItem {
                 ", pricePerUnit=" + pricePerUnit +
                 '}';
     }
+
 }
