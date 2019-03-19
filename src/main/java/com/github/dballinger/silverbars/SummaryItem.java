@@ -4,6 +4,11 @@ import java.util.Objects;
 
 public class SummaryItem {
     private final Kilograms qty;
+
+    public GBP getPricePerUnit() {
+        return pricePerUnit;
+    }
+
     private final GBP pricePerUnit;
 
     public SummaryItem(Kilograms qty, GBP pricePerUnit) {

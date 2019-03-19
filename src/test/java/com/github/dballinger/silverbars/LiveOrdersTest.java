@@ -24,8 +24,29 @@ public class LiveOrdersTest {
         Summary summary = new LiveOrders(orders).summarise();
 
         assertThat(summary.sell(), contains(
-           new SummaryItem(new Kilograms(4), new GBP(300)),
-           new SummaryItem(new Kilograms(5), new GBP(301))
+         new SummaryItem(new Kilograms(4), new GBP(300)),
+         new SummaryItem(new Kilograms(5), new GBP(301))
         ));
     }
+
+    @Test
+    public void shouldSummariseSellOrdersInAscendingPriceOrder() throws Exception {
+        List<SellOrder> orders = List.of(
+         aSellOrder()
+          .withQty(4)
+          .withPricePerUnit(301)
+          .build(),
+         aSellOrder()
+          .withQty(5)
+          .withPricePerUnit(300)
+          .build()
+        );
+        Summary summary = new LiveOrders(orders).summarise();
+
+        assertThat(summary.sell(), contains(
+         new SummaryItem(new Kilograms(5), new GBP(300)),
+         new SummaryItem(new Kilograms(4), new GBP(301))
+        ));
+    }
+
 }

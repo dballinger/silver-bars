@@ -1,5 +1,7 @@
 package com.github.dballinger.silverbars;
 
+import com.google.common.collect.Ordering;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +9,8 @@ public class Summary {
     private final List<SummaryItem> sell;
 
     Summary(List<SummaryItem> sell) {
-        this.sell = sell;
+        this.sell = Ordering.from((SummaryItem item1, SummaryItem item2) -> item1.getPricePerUnit().value().compareTo(item2.getPricePerUnit().value()))
+                     .sortedCopy(sell);
     }
 
     @Override
