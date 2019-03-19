@@ -7,7 +7,6 @@ import java.util.List;
 import static com.github.dballinger.silverbars.SellOrderFixture.aSellOrder;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
-import static org.junit.Assert.*;
 
 public class SummaryTest {
     @Test
