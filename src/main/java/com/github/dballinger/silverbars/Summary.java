@@ -5,7 +5,6 @@ import com.google.common.collect.Ordering;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -29,19 +28,6 @@ public class Summary {
                                             .collect(Collectors.toList());
 
         sell = Ordering.from(priceAscending).sortedCopy(aggregatedSell);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Summary summary = (Summary) o;
-        return Objects.equals(sell, summary.sell);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(sell);
     }
 
     @Override
