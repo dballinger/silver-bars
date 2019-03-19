@@ -1,6 +1,7 @@
 package com.github.dballinger.silverbars;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ public class Repo {
     }
 
     public Collection<SellOrder> allOrders() {
-        return orders.values();
+        return Collections.unmodifiableCollection(orders.values());
     }
 
     public void remove(OrderId id) {
