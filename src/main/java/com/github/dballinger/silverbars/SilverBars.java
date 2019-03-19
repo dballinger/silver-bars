@@ -7,7 +7,11 @@ public class SilverBars {
         this.repo = repo;
     }
 
-    public void register(SellOrder order) {
-        repo.add(order);
+    public OrderId register(SellOrder order) {
+        return repo.add(order);
+    }
+
+    public void cancel(OrderId id) {
+        repo.remove(id);
     }
 }
