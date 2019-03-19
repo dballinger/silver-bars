@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class Summary {
     private final List<SummaryItem> sell;
-    private final Comparator<SummaryItem> priceAscending = (SummaryItem item1, SummaryItem item2) -> item1.pricePerUnit().value().compareTo(item2.pricePerUnit().value());
+    private final Comparator<SummaryItem> priceAscending = (SummaryItem item1, SummaryItem item2) -> item1.getPricePerUnit().value().compareTo(item2.getPricePerUnit().value());
     private final Collector<SellOrder, ?, Map<GBP, List<SellOrder>>> groupByPrice = Collectors.groupingBy(SellOrder::getPricePerUnit);
 
     public Summary(List<SellOrder> sellOrders) {

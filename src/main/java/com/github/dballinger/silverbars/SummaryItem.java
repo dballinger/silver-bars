@@ -1,7 +1,5 @@
 package com.github.dballinger.silverbars;
 
-import java.util.Objects;
-
 public class SummaryItem {
     private final Kilograms qty;
 
@@ -12,26 +10,12 @@ public class SummaryItem {
         this.pricePerUnit = pricePerUnit;
     }
 
-    public GBP pricePerUnit() {
+    public GBP getPricePerUnit() {
         return pricePerUnit;
     }
 
-    public Kilograms qty() {
+    public Kilograms getQty() {
         return qty;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SummaryItem that = (SummaryItem) o;
-        return Objects.equals(qty, that.qty) &&
-                Objects.equals(pricePerUnit, that.pricePerUnit);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(qty, pricePerUnit);
     }
 
     @Override
