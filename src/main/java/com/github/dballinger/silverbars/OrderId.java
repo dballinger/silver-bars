@@ -6,7 +6,7 @@ public class OrderId extends TinyType<UUID> {
 
     private final UUID value;
 
-    public OrderId(UUID value) {
+    private OrderId(UUID value) {
         this.value = value;
     }
 
@@ -15,7 +15,7 @@ public class OrderId extends TinyType<UUID> {
         return value;
     }
 
-    public static OrderId newId() {
+    static OrderId newId() {
         return new OrderId(UUID.randomUUID());
     }
 }

@@ -5,7 +5,7 @@ public class SummaryItem {
 
     private final GBP pricePerUnit;
 
-    public SummaryItem(Kilograms qty, GBP pricePerUnit) {
+    SummaryItem(Kilograms qty, GBP pricePerUnit) {
         this.qty = qty;
         this.pricePerUnit = pricePerUnit;
     }

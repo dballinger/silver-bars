@@ -24,7 +24,7 @@ public class Summary {
     private final List<SummaryItem> sell;
     private final List<SummaryItem> buy;
 
-    public Summary(Collection<Order> orders) {
+    Summary(Collection<Order> orders) {
         Stream<Order> sellOrders = orders.stream().filter(Sell.acceptedOrders());
         Stream<Order> buyOrders = orders.stream().filter(Buy.acceptedOrders());
 

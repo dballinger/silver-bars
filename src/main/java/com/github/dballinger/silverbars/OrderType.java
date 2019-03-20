@@ -13,11 +13,11 @@ public enum OrderType {
         this.summaryItemSort = summaryItemSort;
     }
 
-    public Comparator<SummaryItem> summaryItemSort() {
+    Comparator<SummaryItem> summaryItemSort() {
         return summaryItemSort;
     }
 
-    public Predicate<Order> acceptedOrders() {
+    Predicate<Order> acceptedOrders() {
         return order -> order.getType() == this;
     }
 }
