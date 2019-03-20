@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.Collection;
 
-import static com.github.dballinger.silverbars.SellOrderFixture.aSellOrder;
+import static com.github.dballinger.silverbars.OrderFixture.aSellOrder;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -12,8 +12,8 @@ public class RepoTest {
 
     @Test
     public void shouldAddAndListOrders() throws Exception {
-        SellOrder order1 = aSellOrder().build();
-        SellOrder order2 = aSellOrder().build();
+        Order order1 = aSellOrder().build();
+        Order order2 = aSellOrder().build();
         Repo repo = new Repo();
         repo.add(order1);
         repo.add(order2);
@@ -28,8 +28,8 @@ public class RepoTest {
 
     @Test
     public void shouldRemoveOrder() throws Exception {
-        SellOrder orderToKeep = aSellOrder().build();
-        SellOrder orderToRemove = aSellOrder().build();
+        Order orderToKeep = aSellOrder().build();
+        Order orderToRemove = aSellOrder().build();
         Repo repo = new Repo();
         repo.add(orderToKeep);
         OrderId id = repo.add(orderToRemove);
@@ -40,10 +40,10 @@ public class RepoTest {
 
     @Test
     public void shouldProvideAnImmutableCollectionOfOrders() throws Exception {
-        SellOrder order = aSellOrder().build();
+        Order order = aSellOrder().build();
         Repo repo = new Repo();
         repo.add(order);
-        Collection<SellOrder> orders = repo.allOrders();
+        Collection<Order> orders = repo.allOrders();
         try {
             orders.remove(order);
         } catch (Exception e) {

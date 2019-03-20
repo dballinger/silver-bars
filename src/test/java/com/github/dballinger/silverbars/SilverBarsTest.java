@@ -3,7 +3,7 @@ package com.github.dballinger.silverbars;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.github.dballinger.silverbars.SellOrderFixture.aSellOrder;
+import static com.github.dballinger.silverbars.OrderFixture.aSellOrder;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -20,14 +20,14 @@ public class SilverBarsTest {
 
     @Test
     public void shouldRegisterAnOrder() throws Exception {
-        SellOrder order = aSellOrder().build();
+        Order order = aSellOrder().build();
         silverBars.register(order);
         assertThat(repo.allOrders(), contains(order));
     }
 
     @Test
     public void shouldCancelAnOrder() throws Exception {
-        SellOrder order = aSellOrder().build();
+        Order order = aSellOrder().build();
         OrderId id = silverBars.register(order);
         silverBars.cancel(id);
         assertThat(repo.allOrders(), is(empty()));
@@ -35,8 +35,8 @@ public class SilverBarsTest {
 
     @Test
     public void shouldProvideLiveOrderSummary() throws Exception {
-        SellOrder order1 = aSellOrder().withPricePerUnit(1).withQty(2).build();
-        SellOrder order2 = aSellOrder().withPricePerUnit(3).withQty(4).build();
+        Order order1 = aSellOrder().withPricePerUnit(1).withQty(2).build();
+        Order order2 = aSellOrder().withPricePerUnit(3).withQty(4).build();
         repo.add(order1);
         repo.add(order2);
         Summary summary = silverBars.liveOrders();

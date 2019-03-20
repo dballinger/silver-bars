@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Repo {
-    private final Map<OrderId, SellOrder> orders = new HashMap<>();
+    private final Map<OrderId, Order> orders = new HashMap<>();
 
-    public OrderId add(SellOrder order) {
+    public OrderId add(Order order) {
         OrderId id = OrderId.newId();
         orders.put(id, order);
         return id;
     }
 
-    public Collection<SellOrder> allOrders() {
+    public Collection<Order> allOrders() {
         return Collections.unmodifiableCollection(orders.values());
     }
 
