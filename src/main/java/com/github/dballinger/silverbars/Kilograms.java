@@ -2,11 +2,11 @@ package com.github.dballinger.silverbars;
 
 import java.util.function.BinaryOperator;
 
-public class Kilograms extends TinyType<Integer> {
+public class Kilograms extends TinyType<Double> {
     public static final Kilograms ZERO = new Kilograms(0);
-    private int value;
+    private double value;
 
-    public Kilograms(int value) {
+    public Kilograms(double value) {
         this.value = value;
     }
 
@@ -15,7 +15,7 @@ public class Kilograms extends TinyType<Integer> {
     }
 
     @Override
-    public Integer value() {
+    public Double value() {
         return value;
     }
 }
