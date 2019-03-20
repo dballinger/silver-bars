@@ -32,4 +32,17 @@ public class SilverBarsTest {
         silverBars.cancel(id);
         assertThat(repo.allOrders(), is(empty()));
     }
+
+    @Test
+    public void shouldProvideLiveOrderSummary() throws Exception {
+        SellOrder order1 = aSellOrder().withPricePerUnit(1).withQty(2).build();
+        SellOrder order2 = aSellOrder().withPricePerUnit(3).withQty(4).build();
+        repo.add(order1);
+        repo.add(order2);
+        Summary summary = silverBars.liveOrders();
+        assertThat(summary.sell(), contains(
+         samePropertyValuesAs(new SummaryItem(order1.getQty(), order1.getPricePerUnit())),
+         samePropertyValuesAs(new SummaryItem(order2.getQty(), order2.getPricePerUnit()))
+        ));
+    }
 }

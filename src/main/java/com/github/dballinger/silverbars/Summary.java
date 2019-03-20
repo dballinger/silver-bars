@@ -2,6 +2,7 @@ package com.github.dballinger.silverbars;
 
 import com.google.common.collect.Ordering;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,7 @@ public class Summary {
     private final Comparator<SummaryItem> priceAscending = (SummaryItem item1, SummaryItem item2) -> item1.getPricePerUnit().value().compareTo(item2.getPricePerUnit().value());
     private final Collector<SellOrder, ?, Map<GBP, List<SellOrder>>> groupByPrice = Collectors.groupingBy(SellOrder::getPricePerUnit);
 
-    public Summary(List<SellOrder> sellOrders) {
+    public Summary(Collection<SellOrder> sellOrders) {
         List<SummaryItem> aggregatedSell = sellOrders.stream()
                                             .collect(groupByPrice)
                                             .entrySet()

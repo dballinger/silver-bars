@@ -14,4 +14,8 @@ public class SilverBars {
     public void cancel(OrderId id) {
         repo.remove(id);
     }
+
+    public Summary liveOrders() {
+        return new Summary(repo.allOrders());
+    }
 }
