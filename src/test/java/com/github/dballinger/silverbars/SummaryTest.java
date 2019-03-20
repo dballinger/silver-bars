@@ -100,4 +100,24 @@ public class SummaryTest {
          samePropertyValuesAs(new SummaryItem(new Kilograms(6), new GBP(300)))
         ));
     }
+
+    @Test
+    public void shouldSummariseBuyOrdersInAscendingPriceOrder() throws Exception {
+        List<Order> orders = List.of(
+         aBuyOrder()
+          .withQty(4)
+          .withPricePerUnit(300)
+          .build(),
+         aBuyOrder()
+          .withQty(5)
+          .withPricePerUnit(301)
+          .build()
+        );
+        Summary summary = new Summary(orders);
+
+        assertThat(summary.buy(), contains(
+         samePropertyValuesAs(new SummaryItem(new Kilograms(5), new GBP(301))),
+         samePropertyValuesAs(new SummaryItem(new Kilograms(4), new GBP(300)))
+        ));
+    }
 }
