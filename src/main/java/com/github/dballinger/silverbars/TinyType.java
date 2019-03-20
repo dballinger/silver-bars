@@ -16,7 +16,7 @@ abstract public class TinyType<T> {
     @Override
     public boolean equals(Object obj) {
         if (getClass().equals(obj.getClass())) {
-            return value().equals(((TinyType<T>)obj).value());
+            return value().equals(((TinyType)obj).value());
         } else {
             return false;
         }
