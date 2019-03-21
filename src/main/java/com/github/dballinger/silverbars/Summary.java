@@ -9,9 +9,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import static com.github.dballinger.silverbars.OrderType.Buy;
-import static com.github.dballinger.silverbars.OrderType.Sell;
-
 public class Summary {
 
     private final List<SummaryItem> sell;

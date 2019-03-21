@@ -3,7 +3,7 @@ package com.github.dballinger.silverbars;
 public class SilverBars {
     private Repo repo;
 
-    public SilverBars(Repo repo) {
+    SilverBars(Repo repo) {
         this.repo = repo;
     }
 
@@ -17,5 +17,9 @@ public class SilverBars {
 
     public Summary liveOrders() {
         return new Summary(repo.allOrders());
+    }
+
+    public static SilverBars newInstance() {
+        return new SilverBars(new Repo());
     }
 }
