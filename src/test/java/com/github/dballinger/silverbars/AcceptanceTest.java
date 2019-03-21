@@ -19,7 +19,7 @@ public class AcceptanceTest {
 
     @Before
     public void before() {
-        silverBars = new SilverBars(new Repo());
+        silverBars = SilverBars.newInstance();
     }
 
     @Test
