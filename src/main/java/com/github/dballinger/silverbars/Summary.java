@@ -18,8 +18,8 @@ public class Summary {
     private final List<SummaryItem> buy;
 
     Summary(Collection<Order> orders) {
-        sell = summariseOrders(orders, Sell.acceptedOrders(), SellSummaryItem::new);
-        buy = summariseOrders(orders, Buy.acceptedOrders(), BuySummaryItem::new);
+        sell = summariseOrders(orders, SellSummaryItem.acceptedOrders(), SellSummaryItem::new);
+        buy = summariseOrders(orders, BuySummaryItem.acceptedOrders(), BuySummaryItem::new);
     }
 
     private List<SummaryItem> summariseOrders(Collection<Order> orders,

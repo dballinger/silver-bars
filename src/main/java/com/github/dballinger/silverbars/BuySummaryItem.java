@@ -1,5 +1,7 @@
 package com.github.dballinger.silverbars;
 
+import java.util.function.Predicate;
+
 public class BuySummaryItem implements SummaryItem {
     private final Kilograms qty;
 
@@ -21,5 +23,9 @@ public class BuySummaryItem implements SummaryItem {
     @Override
     public int compareTo(SummaryItem o) {
         return o.getPricePerUnit().compareTo(pricePerUnit);
+    }
+
+    static Predicate<Order> acceptedOrders() {
+        return (Order order) -> order.getType() == OrderType.Buy;
     }
 }
