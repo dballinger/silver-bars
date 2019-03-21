@@ -41,8 +41,8 @@ public class SilverBarsTest {
         repo.add(order2);
         Summary summary = silverBars.liveOrders();
         assertThat(summary.sell(), contains(
-         samePropertyValuesAs(new SummaryItem(order1.getQty(), order1.getPricePerUnit())),
-         samePropertyValuesAs(new SummaryItem(order2.getQty(), order2.getPricePerUnit()))
+         samePropertyValuesAs(new SellSummaryItem(order1.getQty(), order1.getPricePerUnit())),
+         samePropertyValuesAs(new SellSummaryItem(order2.getQty(), order2.getPricePerUnit()))
         ));
     }
 }

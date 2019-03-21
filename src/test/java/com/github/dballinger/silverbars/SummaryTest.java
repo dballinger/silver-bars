@@ -26,8 +26,8 @@ public class SummaryTest {
         Summary summary = new Summary(orders);
 
         assertThat(summary.sell(), contains(
-         samePropertyValuesAs(new SummaryItem(new Kilograms(4), new GBP(300))),
-         samePropertyValuesAs(new SummaryItem(new Kilograms(5), new GBP(301)))
+         samePropertyValuesAs(new SellSummaryItem(new Kilograms(4), new GBP(300))),
+         samePropertyValuesAs(new SellSummaryItem(new Kilograms(5), new GBP(301)))
         ));
     }
 
@@ -46,8 +46,8 @@ public class SummaryTest {
         Summary summary = new Summary(orders);
 
         assertThat(summary.sell(), contains(
-         samePropertyValuesAs(new SummaryItem(new Kilograms(5), new GBP(300))),
-         samePropertyValuesAs(new SummaryItem(new Kilograms(4), new GBP(301)))
+         samePropertyValuesAs(new SellSummaryItem(new Kilograms(5), new GBP(300))),
+         samePropertyValuesAs(new SellSummaryItem(new Kilograms(4), new GBP(301)))
         ));
     }
 
@@ -70,8 +70,8 @@ public class SummaryTest {
         Summary summary = new Summary(orders);
 
         assertThat(summary.sell(), contains(
-         samePropertyValuesAs(new SummaryItem(new Kilograms(5), new GBP(300))),
-         samePropertyValuesAs(new SummaryItem(new Kilograms(6), new GBP(301)))
+         samePropertyValuesAs(new SellSummaryItem(new Kilograms(5), new GBP(300))),
+         samePropertyValuesAs(new SellSummaryItem(new Kilograms(6), new GBP(301)))
         ));
     }
 
@@ -94,10 +94,10 @@ public class SummaryTest {
         Summary summary = new Summary(orders);
 
         assertThat(summary.sell(), contains(
-         samePropertyValuesAs(new SummaryItem(new Kilograms(4), new GBP(300)))
+         samePropertyValuesAs(new SellSummaryItem(new Kilograms(4), new GBP(300)))
         ));
         assertThat(summary.buy(), contains(
-         samePropertyValuesAs(new SummaryItem(new Kilograms(6), new GBP(300)))
+         samePropertyValuesAs(new BuySummaryItem(new Kilograms(6), new GBP(300)))
         ));
     }
 
@@ -116,8 +116,8 @@ public class SummaryTest {
         Summary summary = new Summary(orders);
 
         assertThat(summary.buy(), contains(
-         samePropertyValuesAs(new SummaryItem(new Kilograms(5), new GBP(301))),
-         samePropertyValuesAs(new SummaryItem(new Kilograms(4), new GBP(300)))
+         samePropertyValuesAs(new BuySummaryItem(new Kilograms(5), new GBP(301))),
+         samePropertyValuesAs(new BuySummaryItem(new Kilograms(4), new GBP(300)))
         ));
     }
 }
